@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Online Voting System - Update Voter Details</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        .navbar {
+            background-color: #000080;
+
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .hero {
+            padding: 50px 0;
+        }
+
+        .heading {
+            color: #0000b3;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #ced4da;
+
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+        }
+
+        .btn-custom {
+
+            background: linear-gradient(to right, #007bff, #80ccff);
+            border-color: #007bff;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            border-radius: 10px;
+
+            transition: transform 0.5s;
+        }
+
+        .btn-custom:hover {
+            transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+            background: linear-gradient(to right, #0056b3, #007bff);
+        }
+
+        @media (max-width: 768px) {
+            .heading {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="{{ url_for('home') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url_for('admin') }}" class="nav-item nav-link">Admin</a>
+                    <!--                        <a href="{{ url_for('train') }}" class="nav-item nav-link">Train</a>-->
+                    <a href="{{ url_for('voting') }}" class="nav-item nav-link">Vote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+
+
+    <!-- Hero Start -->
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Update Voter Details</h2>
+                    <form action="{{ url_for('updateback') }}" method="post" class="register-form" id="register-form">
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="first_name" class="form-control" placeholder="First Name" required="required" data-validation-required-message="Please enter your first name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="text" name="middle_name" class="form-control" placeholder="Middle Name (optional)" />
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required="required" data-validation-required-message="Please enter your last name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="number" name="aadhar_id" class="form-control" placeholder="Pin Numberr" required="required" pattern="[0-9]{12}" title="It must contain 12 number" minlength="12" maxlength="12" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="voter_id" class="form-control" placeholder="Roll Number" pattern="(?=.*[0-9])(?=.*[A-Z]).{10}" title="Must contain numbers and one uppercase letters(10)" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email ID" required="required" />
+
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="pno" class="form-control" placeholder="Mobile Number" pattern="[0-9]{10}" title="It must contain 10 number" required />
+
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="age" class="form-control" placeholder="Age" required="required" data-validation-required-message="Please enter your age" />
+                        </div>
+
+
+
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Email Verification" />
+
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="https://cdn.dribbble.com/users/1047273/screenshots/6515762/01-pinssm.gif" alt="sing up image"></figure>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Hero End -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
